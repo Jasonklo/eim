@@ -38,7 +38,7 @@ public class GroupController {
 
     @PutMapping("/{id}")
     public void updateGroup(@PathVariable String id, @RequestBody Group group) {
-        if (group.getGroupId()!=(id)) {
+        if (!group.getGroupId().equals(id)) {
             throw new IllegalStateException("Given group's ID doesn't match the ID in the path.");
         }
         groupRepo.save(group);
